@@ -1,6 +1,5 @@
-package com.restapi.payroll.order;
+package com.restapi.sample.order;
 
-import com.restapi.payroll.employee.EmployeeNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

@@ -1,10 +1,10 @@
-package com.restapi.payroll.common;
+package com.restapi.sample.common;
 
-import com.restapi.payroll.employee.Employee;
-import com.restapi.payroll.employee.EmployeeRepository;
-import com.restapi.payroll.order.Order;
-import com.restapi.payroll.order.OrderRepository;
-import com.restapi.payroll.order.Status;
+import com.restapi.sample.employee.Employee;
+import com.restapi.sample.employee.EmployeeRepository;
+import com.restapi.sample.order.Order;
+import com.restapi.sample.order.OrderRepository;
+import com.restapi.sample.order.Status;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;

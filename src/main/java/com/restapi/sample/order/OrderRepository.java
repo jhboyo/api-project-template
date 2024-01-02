@@ -1,4 +1,4 @@
-package com.restapi.payroll.order;
+package com.restapi.sample.order;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

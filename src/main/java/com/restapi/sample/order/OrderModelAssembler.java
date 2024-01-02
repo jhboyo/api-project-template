@@ -1,4 +1,4 @@
-package com.restapi.payroll.order;
+package com.restapi.sample.order;
 
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;

@@ -1,4 +1,4 @@
-package com.restapi.payroll.employee;
+package com.restapi.sample.employee;
 
 public class EmployeeNotFoundException extends RuntimeException {
     public EmployeeNotFoundException(Long id) {

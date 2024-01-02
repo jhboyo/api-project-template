@@ -1,4 +1,4 @@
-package com.restapi.payroll.employee;
+package com.restapi.sample.employee;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

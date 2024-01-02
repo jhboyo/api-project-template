@@ -1,8 +1,7 @@
-package com.restapi.payroll.employee;
+package com.restapi.sample.employee;
 
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
-import org.springframework.lang.NonNullApi;
 import org.springframework.stereotype.Component;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
