@@ -1,5 +1,6 @@
 package com.restapi.sample.employee;
 
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.IanaLinkRelations;
@@ -27,6 +28,7 @@ public class EmployeeController {
     // Aggregate root
     // tag::get-aggregate-root[]
     @GetMapping("/employees")
+    @Operation(summary = "모든 직원 조회")
     public CollectionModel<EntityModel<Employee>> all() {
 
         final var employees = repository.findAll()
@@ -43,6 +45,7 @@ public class EmployeeController {
 
 
     @PostMapping("employees")
+    @Operation(summary = "새로운 직원 등록")
     ResponseEntity<?> newEmployee(@RequestBody Employee employee) {
 
         EntityModel<Employee> entityModel = assembler.toModel(repository.save(employee));
@@ -54,6 +57,7 @@ public class EmployeeController {
 
 
     @GetMapping("/employee/{id}")
+    @Operation(summary = "직원 아이디로 직원 조회")
     public EntityModel<Employee> one(@PathVariable Long id) {
 
         final var employee = repository.findById(id).orElseThrow(() -> new EmployeeNotFoundException(id));
@@ -65,6 +69,7 @@ public class EmployeeController {
 
 
     @PutMapping("/employees/{id}")
+    @Operation(summary = "직원 정보 업데이트")
     ResponseEntity<?> replaceEmployee(@RequestBody Employee newEmployee, @PathVariable Long id) {
 
         Employee updatedEmployee = repository.findById(id)
@@ -88,6 +93,7 @@ public class EmployeeController {
 
 
     @DeleteMapping("/employees/{id}")
+    @Operation(summary = "직원 삭제")
     ResponseEntity<?> deleteEmployee(@PathVariable Long id) {
 
         repository.deleteById(id);

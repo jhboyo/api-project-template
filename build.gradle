@@ -28,8 +28,13 @@ dependencies {
 	runtimeOnly 'org.postgresql:postgresql'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	// https://mvnrepository.com/artifact/org.springframework.hateoas/spring-hateoas
 	implementation 'org.springframework.hateoas:spring-hateoas'
+	implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.3.0'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-configuration-processor', version: '3.2.1'
+	implementation group: 'io.netty', name: 'netty-all', version: '4.1.104.Final'
+	implementation group: 'javax.annotation', name: 'javax.annotation-api', version: '1.3.2'
+
+
 
 }
 

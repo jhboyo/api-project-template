@@ -1,5 +1,7 @@
 package com.restapi.sample.order;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.MediaTypes;
@@ -28,6 +30,7 @@ public class OrderController {
     }
 
     @GetMapping("/orders")
+    @Operation(summary = "모든 주문 조회")
     public CollectionModel<EntityModel<Order>> all() {
 
         final var orders = orderRepository.findAll()
@@ -40,7 +43,10 @@ public class OrderController {
 
     }
 
+
+    @Tag(name = "order-controller") @Tag(name = "order-query")
     @GetMapping("/order/{id}")
+    @Operation(summary = "주문 아이디로 주문 조회")
     public EntityModel<Order> one(@PathVariable Long id) {
 
         Order order = orderRepository.findById(id).orElseThrow(() -> new OrderNotFoundException(id));
@@ -48,7 +54,9 @@ public class OrderController {
         return assembler.toModel(order);
     }
 
+    @Tag(name = "order-controller") @Tag(name = "order-command")
     @PostMapping("/orders")
+    @Operation(summary = "새로운 주문 생성")
     ResponseEntity<EntityModel<Order>> newOrder(@RequestBody Order order) {
 
         order.setStatus(Status.IN_PROGRESS);
@@ -62,6 +70,7 @@ public class OrderController {
 
 
     @DeleteMapping("/orders/{id}/cancel")
+    @Operation(summary = "주문 삭제")
     public ResponseEntity<?> cancel(@PathVariable Long id) {
 
         Order order = orderRepository.findById(id)
@@ -82,6 +91,7 @@ public class OrderController {
 
 
     @PutMapping("/orders/{id}/complete")
+    @Operation(summary = "주문 완료 업데이트")
     public ResponseEntity<?> complete(@PathVariable Long id) {
 
         Order order = orderRepository.findById(id)

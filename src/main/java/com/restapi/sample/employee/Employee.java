@@ -1,5 +1,6 @@
 package com.restapi.sample.employee;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,6 +19,7 @@ public class Employee {
     private Long id;
     private String firstName;
     private String lastName;
+    @Schema(description = "작원 권한")
     private String role;
 
     public Employee(String firstName, String lastName, String role) {
