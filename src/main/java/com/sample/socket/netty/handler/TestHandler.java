@@ -38,6 +38,13 @@ public class TestHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg){
         ByteBuf mBuf = (ByteBuf) msg;
+
+        int length = mBuf.readableBytes();
+        byte[] bytes = new byte[length];
+        mBuf.getBytes(mBuf.readerIndex(), bytes);
+
+        System.out.println(new String(bytes));
+
         buff.writeBytes(mBuf);  // 클라이언트에서 보내는 데이터가 축적됨
         mBuf.release();
 
